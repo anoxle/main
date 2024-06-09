@@ -1,185 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anoxle.git Projects</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .container {
-    text-align: center;
-    width: 80%;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  .content {
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
-  }
-  h1 {
-    color: #00578C;
-    font-size: 3em;
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
-  h2 {
-    color: #333;
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    font-weight: 700;
-  }
-  p {
-    color: #666;
-    font-size: 1.2em;
-    margin-bottom: 30px;
-    font-weight: 400;
-  }
-  .button-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .button {
-    background-color: #00578C;
-    color: #fff;
-    border: none;
-    padding: 20px 40px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-    outline: none;
-    font-weight: 600;
-    position: relative;
-  }
-  .button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  .button:after {
-    content: 'TOP';
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: orange;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8em;
-  }
-  .box-container {
-    display: flex;
-    overflow-x: auto;
-    justify-content: center;
-    margin-top: 40px;
-    gap: 20px;
-  }
-  .box {
-    background-color: #00578C;
-    color: #fff;
-    border: none;
-    padding: 30px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-    outline: none;
-    font-weight: 600;
-  }
-  .box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  .scroll-container {
-    width: 100%;
-    overflow-x: auto;
-    margin-top: 20px;
-  }
-  .scroll-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 2em;
-    color: #ccc;
-    user-select: none;
-    opacity: 0.5;
-    transition: opacity 0.3s;
-  }
-  .scroll-arrow:hover {
-    opacity: 1;
-  }
-  .scroll-arrow.left {
-    left: 10px;
-  }
-  .scroll-arrow.right {
-    right: 10px;
-  }
-  .copyright {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 0.8em;
-    color: #888;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Anoxle.git</title>
+    <meta name="description" content="Anoxle.git is a site where anoxle stores their data and projects you can view the projects in this site this includes discord bots and other">
+    <meta name="keywords" content="anoxle, anoxle.git, fasver, fasver.git, anoxle github, fasver github">
+    <meta name="author" content="Anoxle&reg;">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #00698f;
+        }
+    </style>
 </head>
-<body onload="initializeContent()">
-<div class="container">
-  <div class="content" id="content">
+<body>
     <h1>Welcome to Anoxle.git</h1>
-    <h2>Projects</h2>
-    <p>Find anything related to us here</p>
-    <div class="button-container">
-      <button class="button" id="button-chatto">Chatto <br> <span style="font-size: 0.8em;">Your AI-Powered Discord Bot</span></button>
-      <button class="button" id="button-fasver">Fasver <br> <span style="font-size: 0.8em;">Fast and stable (FV)</span></button>
-      <button class="button" id="button-list-buttons">List-buttons <br> <span style="font-size: 0.8em;">Links - All of our Links (FV)</span></button>
-    </div>
-    <div class="scroll-container" id="scroll-container">
-      <span class="scroll-arrow left" onclick="scrollBoxes(-1)">◀</span>
-      <div class="box-container" id="box-container">
-      </div>
-      <span class="scroll-arrow right" onclick="scrollBoxes(1)">▶</span>
-    </div>
-  </div>
-</div>
-<div class="copyright">
-  © <span id="current-year"></span> Anoxle.git
-</div>
-<script>
-  function initializeContent() {
-    const content = document.getElementById('content');
-    const currentYear = new Date().getFullYear();
-    document.getElementById('current-year').textContent = currentYear;
-    setTimeout(() => { content.style.opacity = 1; }, 500);
-  }
-  function scrollBoxes(direction) {
-    const container = document.getElementById('scroll-container');
-    const scrollAmount = direction * 100;
-    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  }
-  document.getElementById('button-chatto').addEventListener('click', () => {
-    window.location.href = 'https://anoxle.github.io/exco/';
-  });
-  document.getElementById('button-fasver').addEventListener('click', () => {
-    window.location.href = 'https://anoxle.github.io/fasver/';
-  });
-  document.getElementById('button-list-buttons').addEventListener('click', () => {
-    // Add your link here
-    window.location.href = '#';
-  });
-</script>
+    <script>
+        console.log("Hello, World!");
+    </script>
 </body>
 </html>
